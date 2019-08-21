@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.wrapper{
+	width:300px;
+	height:100px;
+	border: 5px solid #ffb2f1;
+	background:#ffd9ec;	
+	}
+ .one, .two{
+ 	width: 50%; height: 100px;
+ 	border: 5px solid #32F1FF;
+ 	float: left;
+ }	
+ .one{
+ 	box-sizing: border-box;
+ }
+ .two{
+ 	box-sizing: content-box;
+ }
+ #area{
+	 width: 80%; 
+	 height: auto;
+	 border: 2px solid blue;
+/* 	 position: relative;  */
+/* 	 top: 150px; */
+ 	margin-top:150px;
+ 	margin-left:20px;
+ 	padding: 5px;
+ }
+ textarea{
+ 	box-sizing:border-box;
+ 	width: calc(100%- 10%);
+ 	//width: 80%;
+ }
+</style>
+</head>
+<body>
+<h3>box-sizing:border-box 내용뿐이아니라 마진 패딩 고려해서 나중에 쓴다 자동으로 알아서 들어가게한다</h3>
+<div class="wrapper">
+	<div class="one">50%</div>
+	<div class="one">50%</div>
+
+</div>
+<h3>box-sizing:content-box 내용을 기준으롤 잡아라 그래서 삐져나온다 하나하나 조절해야한다</h3>
+<div class="wrapper">
+	<div class="two">50%</div>
+	<div class="two">50%</div>
+
+</div>
+<div id="area">
+	<textarea rows="10" cols="100"></textarea>
+</div>
+</body>
+</html>
