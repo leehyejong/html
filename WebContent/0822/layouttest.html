@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ div{
+ box-size: border-box;  /* //마진이 안들어가사 마진을위래 calc */
+  margin:3px;
+  padding:5px;
+  border:1px solid gold;
+  text-align:center;
+ }
+ #header{
+ width:calc(100% - 5px);
+ height:100px;
+ background: yellow;
+ margine-right:5px;
+ border-radius:20px;
+ }
+#left{
+ width: calc(30% - 2px);
+ height:300px;
+ float:left;
+ background :pink;
+ border-radius:20px;
+
+}
+#right{
+ width: calc(70% - 40px); /* //반응형웹] */
+ height:300px;
+ float:right;
+ background:orange;
+ border-radius:50px;
+}
+#footer{
+ clear:both;
+  width:calc(100% - 5px);
+ height:100px;
+ background: lightblue;
+ margine-right:5px;
+ border-radius:25px;
+}
+</style>
+</head>
+<body>
+<div id="header">header</div>
+<div id="left">left</div>
+<div id="right">right</div>
+<div id="footer">footer</div>
+
+</body>
+</html>

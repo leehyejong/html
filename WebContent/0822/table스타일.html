@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<style>
+ table{
+  width:400px;
+  border-collapse:separate;
+  border-spacing:10px;
+  border:2px solid orange;
+ /*  margine-top: 50px;
+  margin-left: 100px; */
+/*   margin: 50px auto; */
+  position:relative;
+  top:100px;
+  left:200px;
+  empty-cells:show;
+ }
+ td{
+  width: 80px;
+  height: 40px;
+  text-align: center;
+ }
+ caption{
+  font-size:1.5em;
+  background: gold;
+  margin: 20px;
+  border: 5px solid orange;
+  padding: 10px;
+  caption-side: top;
+ }
+ #tab1{
+   position:absolute;
+   top:100px;
+   left:300px;
+ }
+ #tab2{
+  display:none;
+ }
+</style>
+<script>
+/*스크립트에서 html요소에 접근하는 방법*
+ * id접근:	a = document.getElementById('id이름')
+   class접근:b = document.getElementByClass('class이름')
+    태그이름접근:c = document.getElementByTagName('태그이름')
+ 
+ */
+ function showtable(){
+	 tab = document.getElementById('tab2');
+	 tab.style.display= 'block';
+ }
+ function  hidetable(){
+	 tab = document.getElementById('tab2');
+	 tab.style.display= 'none';
+ } 
+</script>
+
+
+</head>
+<body>
+<pre>
+table{
+
+  border-collapse:separate;
+  border-spacing:10px;
+  border:2px solid orange;
+ /*  margine-top: 50px;
+  margin-left: 100px; */
+/*   margin: 50px auto; */
+  positoin:absolute; 칸 고정 relative는 pre기준으로 내려오
+  top:100px;
+  left:200px;
+  empty-cells:show;
+ }
+ td{
+  width:80px;
+  height: 40px;
+  text-align:center;
+ }
+  caption{
+  font-size:1.5em;
+  background: gold;
+  margin: 20px;
+  border: 5px solid orange;
+  padding: 10px;
+  caption-side: top;
+
+</pre>
+ <table id="tab1" border="1">
+ <caption>고객리스트</caption>
+  <tr>
+    <td colspan="4">
+    <strong>position: absolute top: 100px;left300px;</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>10</td>
+    <td></td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>14</td>
+    <td>15</td>
+    <td>16</td>
+  </tr>
+
+ 
+ </table>
+ <br>
+ <strong>버튼을 클릭하면 table이 보여집니다</strong>
+ <button onclick="showtable()" type="button">보이기</button>
+ <br>
+ <table id="tab2" border="1" onclick="hidetable()">
+ <caption>고객리스트</caption>
+ <tr>
+   <td colspan="4">
+     <strong>table을 클릭하면 사라집니다</strong>
+   </td>
+ </tr>
+ <tr>
+    <td colspan="4">
+    <strong>position: relative top: 100px;left200px;</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>10</td>
+    <td></td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>14</td>
+    <td>15</td>
+    <td>16</td>
+  </tr>
+
+ 
+ </table>
+ 
+
+</body>
+</html>
