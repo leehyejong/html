@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+ var x;
+ x="Hello World";
+ document.write(x);
+ alert(x);    //aler먼저 실행됨
+ 
+ window.onload = function(){
+	 document.getElementById('result').innerHTML=
+		 "<h1>Hello</h1>";
+	x=100+234;	 
+	document.getElementById('result').innerHTML += x+ "<br>";
+	
+	x=123.456*34.123;   //문자 넣었다가 정수 넣었다가 실수 넣기도 가능
+	document.getElementById('result').innerHTML += x+ "<br>";
+	 
+ }
+
+</script>
+<style>
+ div{
+ border: 1px solid red;
+ height:auto;
+ 
+ 
+ }
+
+</style>
+</head>
+<body>
+ <div id="result"></div>
+ 
+</body>
+</html>

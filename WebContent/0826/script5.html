@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ div{
+  border:1px solid blue;
+  height:100px;
+  padding:10px;
+ }
+</style>
+<script>
+//윈도우 브라우저에 보여졌을때 바디가 먼저 수행된다
+function proc(){
+	 v1 = document.getElementById('d1');
+	 v1.innerHTML = "<h1>Hello</h1>";
+	  v1.innerHTML += "Hello";
+	  v1.innerHTML += "<br>";
+	
+}
+  
+ 
+</script>
+</head>
+<body onload="proc()">
+<pre>
+  실행버튼없이 요소에 접근해서 출력
+ 스크립트가 먼저 실행되고 바디가 나중에 실행되므로
+ 스크립트가 실행되는 시점에서 바디의 요소에 접근이 불가능 하다
+  &lt; body in load="pros()"&gt;
+  바디가 로드되면 proc함수를 자동 호출한다
+  
+  function proc(){}
+  가 없으면 오류가 발생한다
+  
+  
+
+</pre>
+
+<br>
+<div id="d1"></div>
+<br>
+<div id="d2"></div>
+
+</body>
+
+</html>

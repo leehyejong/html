@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+ function proc(){
+	 now =new Date();
+	 
+	 nowstring=now.toLocaleString()
+	 nowdate=now.toLocaleDateString()
+	 nowtime=now.toLocaleTimeString()
+	 
+	 document.write(nowstring+"<br>")
+	 document.write(nowdate+"<br>")
+	 document.write(nowtime+"<br>")
+	 
+	 
+ }
+</script>
+</head>
+<body>
+<pre>
+ 바디태그의 요소를 가지고 우선 document를 생성하여 실행된다
+ script가 실행될 때 새오운 document가 생성되어서 window브라우저에 출력된다
+ 처음에 만들어진 document가 나중에 만들어진 document에 의해서 덮어쓰여진다
+ 버튼을 클릭 했알 때 실행해라
+</pre>
+ <button type="button" onclick="proc()">실행</button>
+</body>
+</html>

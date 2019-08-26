@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<style>
+ div{
+   border: 2px solid green;
+   height:200px;
+   padding:10px;
+ }
+ 
+</style>
+<script>
+function proc(){
+	 now =new Date();
+	 
+	 x=now.toLocaleString();
+	 y=now.toLocaleDateString();
+	 z=now.toLocaleTimeString();  
+// 	 //body요소에 접근
+// 	 idres= document.getElementById('result'); //앞에는 변수이름
+// 	 //출력
+// 	 idres.innerHTML = nowstring + "<br>";
+// 	 idres.innerHTML += nowdate + "<br>";//누적
+// 	 idres.innerHTML += nowtime + "<br>"; //그냥=만 하면 맨 마지막 것만 나온다, 
+	 
+	 
+	 
+// 	 tagres=document.getElementsByTagName('div');//id는 중복안되서 s없고 class랑 name은 s붙음
+// 	 tragres[0].innerHTML=x+"<br>";
+// 	 tragres[0].innerHTML=y+"<br>";
+// 	 tragres[0].innerHTML=z+"<br>";
+	 
+	 
+	 
+	 classres = document.getElementsByClassName('dc');
+ 	 classres[0].innerHTML=x+="<br>";
+ 	 classres[0].innerHTML=y+="<br>";
+ 	 classres[0].innerHTML=z+="<br>";
+ 	 
+ 	classres[0].innerHTML=z+"<H1>HELLO</H>";// DC클래스에 있는 
+//  	aa = document.getElementById('d1');
+//  	aa.innerHTML="<h1.hello</h1>";
+//  	aa.innerHTML +="hello";
+//  	aa.innerHTML+="<br>";
+
+        bb=document.getElementById('d2');
+		bb.textContent = "<h1>hello</h1>";
+		bb.textContent +="hello";
+		bb.textConten t+="<br>";
+}
+
+ 
+
+ 
+</script>
+
+</head>
+<body>
+<pre>
+ 바디요소에 접근
+ -x= document.getElementById('result');
+ -y=document.getElementsByTagName('div');
+ -z = document.getElementsByClassName('dc');
+ 
+ 요소에 출력
+ -x.innerHTML= 값; 값의 html태그를 실행시킨다
+ x.textContent= 값; 값의html태그를 단순 글자로 출력한다.
+ 버튼을 클릭하면 다큐머ㅓㄴ트로 찍지말고 요소에다가 찍어라
+
+</pre>
+<button type="button" onclick="proc()">샐힝</button>
+<div id="result" class="dc"></div>
+<br>
+<div id="d1">
+ <h2>innerHTML을 이용하여 출력</h2>
+</div>
+<div id="d2">
+<h2>textContent을 이용하여 출력</h2>
+</div>
+</body>
+</html>
