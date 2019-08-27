@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script type="text/javascript">
+ function proc1(){
+	 //var a =10;// 지역변수
+	 b=20;//공용변수
+	 
+	 alert(a+","+b);
+	  //입력받기
+	var value =  prompt("숫자를 입력...","1-100사이");
+	  //div result에 출력
+	  var res1 = document.getElementById('result1');
+	  
+	  res1.innerHTML="입력받은 값:" + value + "<br>";
+	  
+ }
+ function proc2(){
+	 //alert(++b); 공용변수
+	 //입력받기
+	 var value = prompt("수 입력..");
+	 
+	 res="입력값 : "+value  //위에다 쓰면 밑에 안써도됨
+	 if(value % 2==0){
+		 res +="짝수";
+	 }else{
+		 res +="홀수";
+	 } 
+	 document.getElementById('result2').innerHTML = res;
+	 
+ }
+ function proc3(){
+	 x=prompt("첫번째 수 입력");
+	 y=prompt("두번쨰 수 입력");
+	 x= parseInt(x); //정수로 바꿔
+	 y= parseInt(y);
+	 //result3에 출력
+	 abc= "첫번째 수 : " + x +"<br>";
+	 abc+="두번째 수 : " + y +"<br>";
+	 abc+= x + " + " + y +" = " + (x+y); //가로쳐야함 안그러면 문자됨 덧셈부터하게
+	 
+	 document.getElementById('result3').innerHTML= abc;
+	
+ }
+ function calc(){
+	 value1 = document.getElementById('x').value;
+	 value2 = document.getElementById('y').value;
+	 
+	 xyvalue= parseInt(value1)+parseInt(value2);
+	 
+	 document.getElementById('sum').value= xyvalue;
+	 
+ }
+ function proc5(){
+	 su1= parseInt(prompt("첫번째 수 입력:"));
+	 su2= parseInt(prompt("두번째 수 입력:"));
+	 
+	 oper=prompt("연산자 입력");
+	 
+	 
+	 
+// 	 if(oper=='+'){
+// 		value= su1+su2;
+// 	 }else if(oper=='-'){
+// 		 value= su1-su2 ;
+// 	 }else if(oper=='*'){
+// 		 value= su1*su2;
+// 	 }else if(oper=='/'){
+// 		 value= su1/su2	;
+// 	 }else{
+// 			 value="연산자 오류";
+// 	 }
+	 switch(oper){
+	 case '+' :
+	       value =su1+su2;
+	       break;
+	 case '-' :
+	       value = su1-su2;
+	       break;   
+	 case '*' :
+	       value=su1*su2;
+	       break;   
+	 case '/' :
+	       value=su1/su2;
+	       break;
+	 default :
+		  value="연산자 오류";
+	       
+	  
+	 }
+	 
+	 res= su1 + oper + su2 +" = "+value;
+	document.getElementById('result5').innerHTML= res;
+	 
+ } 
+ function proc6(){
+	 
+	 if(su1 >100 || su1 <0){
+		 alert("값의 범위가 아닙니다")
+		 return;
+	 
+	 su1= prompt("첫번째 수 입력:");
+	 su1 = parseInt(su1/10);
+	 switch(su1){
+	 case 10:
+	 case 9:
+		 grade="A학점";
+		 break;
+	 case 8:
+		 grade="b학점";
+		 break;
+	 case 7:
+		 grade="c학점";
+		 break;
+	 case 6:
+		 grade="d학점";
+		 break;	 
+	 default :
+		 grade="f학점";
+		 
+	 }
+	 
+	 }
+	/*  if(su1>100 || su1 <0){
+		 alert("값의 범위가 아닙니다")
+		 return; //함수종료 함수실행 전 상태로
+	 }else if(su1>=90){
+		 grade="A학점";
+		 //document.getElementById('result6').innerHTML= "A";
+	 }else if(su1>=80){
+		 grade="b학점";
+		 //document.getElementById('result6').innerHTML="B";
+	 }else if(su1>=70){
+		 grade="c학점";
+		 //document.getElementById('result6').innerHTML="C";	 
+	 }else if(su1>=60){
+		 grade="d학점"; 
+		 //document.getElementById('result6').innerHTML="D";	
+	 }else
+		 grade="f학점"; */
+	  //document.getElementById('result6').innerHTML="F";	 
+	 
+	// document.write(nowstring+"<br>");
+	 
+	res="입력점수:"+su1+"<br>";
+	 res+="학점: "+ grade
+	 document.getElementById('result6').innerHTML=res;
+	 
+ }
+
+
+</script>
+</head>
+<body>
+<div class="box">
+ <h2>prompt 입력받기</h2>
+ -값을 입력받을 떄 사용<br>
+ -prompt(text,defau;t) text는 필수<br>
+ -리턴결과값: String타입의 입력한 값 또는 null<br>
+ <br>
+ <button type="button" id="btn1" onclick="proc1()">실행</button>
+ <br><br>
+ <div id="result1"></div>
+</div>
+
+<div class="box">
+ <h2>짝수홀수 판별</h2>
+ -짝수:2로 나눈 나머지가 0<br>
+ -<br>
+ -<br>
+ <br>
+ <button type="button" id="btn2" onclick="proc2()">실행</button>
+ <br><br>
+ <div id="result2"></div>
+</div>
+
+<div class="box">
+ <h2>두 수의 덧셈</h2>
+ -prompt의 입력결과값은 string이다<br>
+ -덧셈을 하기 위해서는 숫자(정수,실수)로 변환<br>
+ -정수로 변환:parseInt()
+ -실수로 변환:parseDouble()<br>
+ <br>
+ <button type="button" id="btn3" onclick="proc3()">실행</button>
+ <br><br>
+ <div id="result3"></div>
+</div>
+
+<div class="box">
+ <h2>두 수의 덧셈</h2>
+ -input태그를 통하여 입력<br>
+ -input태그에서 입력한 값을 가져올 때:value
+ input채그에 출력 할때도 :value
+ -덧셈을 하기 위해서는 숫자(정수,실수)로 변환<br>
+ -정수로 변환:parseInt()
+ -실수로 변환:parseDouble()<br>
+ <br>
+ <br><br>
+ <div id="result4">
+  첫번째 수: <input type="text" id="x"> <br>
+  두번째 수: <input type="text" id="y"> <br>
+  <br>
+ <button type="button" id="btn4" onclick="calc()">실행</button>
+ <br>
+  결과 : <input type="text" id="sum">
+ </div>
+</div>
+
+<div class="box">
+ <h2>두 수의 연산</h2>
+ -prompt를 통하여 두 수와 연산자를 입력<br>
+ -연산자를 비교해서 연산한다
+<br>
+ <br>
+ <br><br>
+ <button type="button" onclick="proc5()">실행</button>
+ <div id="result5">
+  
+ </div>
+</div>
+
+<div class="box">
+ <h2>학점계산</h2>
+ -prompt를 통하여 두 수와 연산자를 입력<br>
+ -학점을 구한다
+<br>
+ <br>
+ <br><br>
+ <button type="button" onclick="proc6()">실행</button>
+ <div id="result6">
+  
+ </div>
+</div>
+</body>
+</html>
