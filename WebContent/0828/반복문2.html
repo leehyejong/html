@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+ function proc1(){
+	 
+	 i=1;
+	 res="";
+	 while(i<=10){
+		 res += i + "<br>";
+		 i++;
+	 }
+	 document.getElementById('result1').innerHTML=res;
+ }
+ function proc2(){
+	 res="";
+// 	 while(true){
+// 		 rand= Math.floor(Math.random()*51);
+// 		 res+=rand+",";
+// 		 if(rand==0) break;
+// 	 }
+	do{
+	 rand= Math.floor(Math.random()*51);
+	 res+=rand+",";
+	 if(rand==0) break;
+		
+	}while(true);
+	document.getElementById('result2').innerHTML=res;
+ }
+ function proc3(){
+	 msg="";
+	 for(i=0;i<10;i++){
+		 if(i==3)	 break;//식이 짧아서 중가로 없어도됨 브레이크는  for문을 나감
+		 msg += i + "<br>"; //else
+	 }
+	 document.getElementById('result3').innerHTML=msg;
+ }
+ function proc4(){
+	 msg="";
+	 i=0;
+	 while(i<10){
+		 if(i==3){ break;
+		 
+		 }
+		 msg += i + "<br>";
+		 i++;
+	 }
+	 document.getElementById('result4').innerHTML=msg;
+ }
+ function proc5(){
+	 msg=""; 
+	 i=0;
+	 do{if(i==3){ 
+		 }	 break;
+		 msg += i + "<br>";
+		 i++;
+		 
+	 }while(1<10)
+		 document.getElementById('result5').innerHTML=msg;
+ }
+ function proc6(){
+	 msg="";
+	 for(i=0;i<10;++i){
+		 if(i==3) continue;
+		 msg += i+ "<br>";
+	 }
+	 document.getElementById('result6').innerHTML=msg;
+	 
+	 
+ }
+ function proc7(){
+	 msg="";
+	 i=0;
+	 while(i<10){
+		 if(i%3==0){
+			i++;
+			continue; 
+		 }
+		 msg += i +"<br>";
+			 i++;
+		 }
+	 document.getElementById('result7').innerHTML=msg;
+ }
+ function proc8(){
+	 msg="";
+	 i=0;
+	 do{
+		 if(i%3==0){
+			i++;
+			continue; 
+		 }
+		 msg += i +"<br>";
+		 i++;
+	 }while(i<10);
+	 document.getElementById('result8').innerHTML=msg;
+} 
+ 
+
+</script>
+</head>
+<body>
+<div class="box">
+ <H3>반복문 1-10출력</H3>
+ -while(조건식)
+ -조건이 참이면 수행하고 거짓이면 수행종료
+  <br><br>
+  <input type="button" value="실행" onclick="proc1()">
+  <br><br>
+ <div id="result1"></div>
+</div>
+
+<div class="box">
+ <H3>랜덤발생</H3>
+ -0~50사이의 랜덤발생
+ -랜덤으로 발생된 값이 0이면 종료 <br>
+ -while,do-while
+
+  <br><br>
+  <input type="button" value="실행" onclick="proc2()">
+  <br><br>
+ <div id="result2"></div>
+</div>
+
+<div class="box">
+ <H3>1에서 10사이</H3>
+ -반복값이 3이면 종료-break<br>
+
+  <br><br>
+  <input type="button" value="실행for" onclick="proc3()">
+  <input type="button" value="실행while" onclick="proc4()">
+  <input type="button" value="실행dowhile" onclick="proc5()">
+  <br><br>
+ <div id="result3"></div>
+ <div id="result4"></div>
+ <div id="result5"></div>
+ </div>
+ 
+ <div class="box">
+ <H3>1에서 10사이</H3>
+ -반복값이 3이면 다시 위로-continue<br>
+
+  <br><br>
+  <input type="button" value="실행for" onclick="proc6()">
+  <input type="button" value="실행while" onclick="proc7()">
+  <input type="button" value="실행dowhile" onclick="proc8()">
+  <br><br>
+ <div id="result6"></div>
+ <div id="result7"></div>
+ <div id="result8"></div>
+ </div>
+</body>
+</html>

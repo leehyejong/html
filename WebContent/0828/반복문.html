@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+ function proc1(){
+	 
+	 res = ""; //초기값이 필요
+	 for(i=1;i<11;i++){
+		res += i +"<br>"; //문자결합
+	 }
+	 document.getElementById('result1').innerHTML = res;
+ }
+ function proc2(){
+	 res=0;//위에 값이 다 지워지고 새로 시작
+	 for(i=1;i<11;i++){
+		 res+= i;//숫자결합
+	 }
+	 document.getElementById('result2').innerHTML = res;
+ }
+ function proc3(){
+	 res=0;
+	 str="";//초기값
+	 for(i=1; res<=3000 ;i++){
+		 res+=i;
+		 str += i+ " " +res+"<br>";
+		 if(res>=3000) break;
+		 //else 없어도 알아서 돌음
+	 }
+	 str += "1~"+i+"까지의 합="+res;
+	 document.getElementById('result3').innerHTML=str;
+ }
+ function proc4(){
+	 //수를 입력
+	 a= prompt("수 입력");
+	 //1-9까지 곱하기 해서 구구단 출력
+	 res=""; //초기화 안하면 위에 거랑 함께 나옴 공용변수
+	 for(i=1;i<10;i++){
+		res += a + "*" + i + "=" + a*i + "<br>";
+	 }
+
+	 document.getElementById('result4').innerHTML=res;
+ }
+ function proc5(){
+	
+	 
+	 res="";
+	 res += "<table border='1'>";
+	 for(i=1;i<10;i++){
+		 res+="<tr>";
+		 res+="<td>"+i+"</td>"; //첫 칸을 만들어야해서
+		 for(j=2;j<10;j++){
+			 res+="<td>";
+			 res+=i*j;
+			 res+="</td>";
+			 
+		 }
+		 res+="</tr>";
+	 }
+	 res+="</table>";
+	 
+		 document.getElementById('result5').innerHTML=res;
+	 
+ }
+</script>
+<style>
+table{
+ border:5px solid blue;
+ border-spacing:5px;
+}
+ td{
+   width:40px;
+   padding:10px;
+   text-align:center;
+ }
+</style>
+</head>
+<body>
+<div class="box">
+ <H3>반복문 1-10출력</H3>
+ -for(i=1;i<11;i++)
+  <br><br>
+  <input type="button" value="실행" onclick="proc1()">
+  <br><br>
+ <div id="result1"></div>
+</div>
+
+<div class="box">
+ <H3>반복문 1-10 합 출력</H3>
+ -for(i=1;i<11;i++)
+  <br><br>
+  <input type="button" value="실행" onclick="proc2()">
+  <br><br>
+ <div id="result2"></div>
+</div>
+
+<div class="box">
+ <H3>반복문 1-100 합구하기</H3>
+ -합이 3000이상이면 종료 -break<br>
+ -for(i=1;i<101;i++)
+  <br><br>
+  <input type="button" value="실행" onclick="proc3()">
+  <br><br>
+ <div id="result3"></div>
+</div>
+
+<div class="box">
+ <H3>반복문 구구단 출력</H3>
+ -prompt를 이용해서 단을 입력받는다<br>
+ -입력받은 수의 구구단을 출력한다
+  <br><br>
+  <input type="button" value="실행" onclick="proc4()">
+  <br><br>
+ <div id="result4"></div>
+</div>
+
+<div class="box">
+ <H3>반복문 구구단 출력</H3>
+ -prompt를 이용해서 단을 입력받는다<br>
+ -입력받은 수의 구구단을 출력한다
+  <br><br>
+  <input type="button" value="실행" onclick="proc5()">
+  <br><br>
+ <div id="result5"></div>
+</div>
+</body>
+</html>

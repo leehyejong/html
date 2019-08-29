@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function proc1(){
+	
+	 var fr = ["사과","배","바나나","복숭아"];
+	 var result=document.getElementById('result1');
+	
+	//result.innerHTML=fr; var가 없으면 공용변수
+// 	res="";
+// 	for(i=0;i<fr1.length;i++){
+// 		res+= i + "번째"+fr1[i]+"<br>"
+// 	}
+// 	result.innerHTML=res;
+
+	print(fr,result);
+}
+function print(f,r){
+	res="";
+	for(i=0;i<f.length;i++){
+		res+= i + "번째"+f[i]+"<br>";
+	}
+	r.innerHTML=res;
+}
+function proc2(){
+	 var fr = new Array("개나리","진달래","무궁화","수선화","라일락");
+	 var result=document.getElementById('result2');
+// 	res="";
+// 	//result.innerHTML=fr2;  //지역변수는 안된다
+// 	for(i=0;i<fr2.length;i++){
+// 		res += i + "번째"+fr2[i]+"<br>"
+// 	}
+// 	result.innerHTML=res;
+	print(fr,result);
+}
+function proc3(){
+	  var fr = new Array();
+	  fr[0]="개나리";
+	  fr[1]="진달레";
+	  fr[2]="무궁화";
+	  fr[3]="수선화";
+	
+	   var result=document.getElementById('result3');
+// 	 // result.innerHTML=fr3;
+// 	 res="";
+// 	  for(i=0;i<fr3.length;i++){
+// 			res += i + "번째"+fr3[i]+"<br>"
+// 		}
+// 		result.innerHTML=res;
+	  print(fr,result);
+	
+}
+
+
+</script>
+</head>
+<body>
+<div class="box">
+ <H3>1. 배열</H3>
+  -fr=[" 사과","배","바나나","복숭아"]<br>
+  <br><br>
+  <input type="button" value="실행" onclick="proc1()">
+  <br><br>
+ <div id="result1"></div>
+</div>
+
+<div class="box">
+ <H3>1. 배열</H3>
+  -fr=new Array("개나리","진달래","무궁화","수선화","라일락")<br>
+  <br><br>
+  <input type="button" value="실행" onclick="proc2()">
+  <br><br>
+ <div id="result2"></div>
+</div>
+
+<div class="box">
+ <H3>1. 배열</H3>
+  -fr3=new Array();
+  fr3[0]="개나리";<br>
+  fr3[1]="진달레";<br>
+  fr3[2]="무궁화";<br>
+  fr3[3]="수선화";<br>
+  
+  
+  <br><br>
+  <input type="button" value="실행" onclick="proc3()">
+  <br><br>
+ <div id="result3"></div>
+</div>
+
+</body>
+</html>

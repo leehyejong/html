@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+
+<script>
+ function proc1(){
+	 sum=0;
+	 
+	 x = parseint(prompt("수 입력"));
+	 sum += x;
+	 
+	 document.getElementById('result1').innerHTML=sum;
+ }
+function proc2(){
+	x=prompt("수 1 입력");
+	y=prompt("수 2 입력");
+	
+	add(x,y)
+}
+function add(a,b){
+	a=parseInt(a);
+	b=parseInt(b);
+	
+	sum= a+b;
+	alert(sum);
+	
+}
+</script>
+
+
+
+</head>
+<body>
+<div class="box">
+ <H3>1. 함수</H3>
+  -파라미터 없고 반환갑ㅅ도 없다
+  <br><br>
+  <input type="button" value="실행" onclick="proc1()">
+  <br><br>
+ <div id="result1"></div>
+</div>
+<div class="box">
+ <H3>1. 함수</H3>
+  -proc2 내부에서 add(a,b)함수를 호출한다
+  add(a,b)함수는 파라미터 있고 반환갑ㄱ은 없다
+  <br><br>
+  <input type="button" value="실행" onclick="proc2()">
+  <br><br>
+ <div id="result2"></div>
+</div>
+
+<div class="box">
+ <H3>1. 함수</H3>
+  -proc3 내부에서 add(a,b)함수를 호출한다
+  add(a,b)함수는 파라미터 있고 반환갑ㅅ도 있다
+  <br><br>
+  <input type="button" value="실행" onclick="proc3()">
+  <br><br>
+ <div id="result3"></div>
+</div>
+<button type="button">실행</button> 
+
+</body>
+</html>

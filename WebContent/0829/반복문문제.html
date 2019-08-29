@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+ function proc1(){
+	 sum=0;
+	 	
+	 	for(i=1;i<101;i++){
+	 		 
+	 		sum+=i;	
+	 		
+	 	}
+	 	res="1-100까지 작수의 합="+sum;
+	 	document.getElementById('result1').innerHTML= sum;
+	 
+ }
+ function proc2(){
+	 
+	 	sum=0;
+	 	
+	 	for(i=1;i<201;i++){
+	 		if(i%2!=0) continue;
+	 		sum+=i;	
+	 		
+	 	}
+	 	res="1-200까지 짝수의 합="+sum;
+	 	document.getElementById('result2').innerHTML= res;
+ }
+ function proc3(){
+	 sum=0;
+	 res="";
+	 while(true){
+		 a = parseInt(prompt("수 입력","0이면 종료"));
+		 if(a==0) break;
+		 
+		 res += a +","; //문자	 
+		 sum += a; //숫자
+	 }
+	 res = "입력된 값: "+ res +"<br>";
+	 res +="총헙 : "+ sum;
+	 
+	 document.getElementById('result3').innerHTML=res;
+ }
+ function proc4(){
+	 
+	 sum=0;
+	 res="";
+	 for(i=1;i<11;i++){
+		 for(k=1;k<11;k++){
+			 sum=i+k;
+			 if(sum%3!=0) continue; //k로가는 것
+			 res+=i+"+"+k+"="+sum+"<br>"; 
+			
+		 }
+	 }  document.getElementById('result4').innerHTML=res;
+ }
+ function proc5(){
+	res=""
+	 for(i=1;i<101;i++){
+		 while(true){
+			 if(i%2==0 && i%3==0 ){
+			res+=i+","
+			 
+		 }
+	 }document.getElementById('result5').innerHTML=res;
+	 
+ }
+ function proc6(){
+	 res="";
+	 sum=0;
+	 while(true){
+		 a = parseInt(prompt("첫번쨰"));	 
+		 b = parseInt(prompt("두번쨰"));
+		 if(a==0 && b==0) break;
+		 c= a+b;
+		 if(c<100) continue;
+		 
+		 sum += c;
+		 res += a + "+" + b + "=" + c + "<br>";
+	 
+	  }
+	 document.getElementById('result6').innerHTML=res;
+ }
+	 	 
+	 
+ 
+</script>
+</head>
+<body>
+
+<div class="box">
+ <H3>1~100 합구하기</H3>
+  -for(i=1;i 101;i++)
+  <br><br>
+  <input type="button" value="실행" onclick="proc1()">
+  <br><br>
+ <div id="result1"></div>
+</div>
+
+<div class="box">
+ <H3>1~200 짝수 합구하기</H3>
+  -continue를 이용햔댜<br>
+  -for(i=1;i 201;i++)
+  <br><br>
+  <input type="button" value="실행" onclick="proc2()">
+  <br><br>
+ <div id="result2"></div>
+</div>
+
+<div class="box">
+ <H3>입력받아서 더하기</H3>
+  -promot를 이용<br>
+  -입력값이 0이면 종료하고 누적된 값을 출력<br>
+  -for(;;) while(true) -break 필요
+  <br><br>
+  <input type="button" value="실행" onclick="proc3()">
+  <br><br>
+ <div id="result3"></div>
+</div>
+
+<div class="box">
+ <H3>다중for 1-10</H3>
+  -i,k의 값을 더해서 3의 배수인 것만 출력한다<br>
+  -continue를 사용<br>
+  -
+  <br><br>
+  <input type="button" value="실행" onclick="proc4()">
+  <br><br>
+ <div id="result4"></div>
+</div>
+
+<div class="box">
+ <H3>2의 배수이면서 3의 배수</H3>
+  -for(i=1;i 100;i++)<br>
+  -1-100 사이 중 2의 배수 3의 배수인것을 출력<br>
+  -for(;;) while(true) -break 필요
+  <br><br>
+  <input type="button" value="실행" onclick="proc5()">
+  <br><br>
+ <div id="result5"></div>
+</div>
+
+<div class="box">
+ <H3>입력받아서 더하기</H3>
+  -promot를 이용<br>
+  -두 수를 더해서 100이상이면 누적, continue 이용
+  -두수 입력값이 모두 0이면 종료하고 누적된 값을 출력<br>
+  -for(;;) while(true) -break 필요
+  <br><br>
+  <input type="button" value="실행" onclick="proc6()">
+  <br><br>
+ <div id="result6"></div>
+</div>
+
+
+</body>
+</html>
