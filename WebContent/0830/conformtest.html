@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function proc1(){
+	res="";
+	while(true){
+	a=prompt("수를 입력");
+	res+="<br>****"+a+"단****<br>"
+	for(i=1;i<10;i++){
+		res+=a+"*"+i+"="+a*i+"<br>"
+		
+	}
+	document.getElementById('result1').innerHTML+= res;
+	y = confirm("게속 하겠습니까");
+	if(y==false) break;
+ }
+}
+
+</script>
+</head>
+<body>
+<div class="box">
+ <H3>1.confirm함수</H3>
+파라미터있고 반환값도있다
+사용자의 질문에 답변을 받아서 리턴하는함수다
+  <br><br>
+  <input type="button" value="실행" onclick="proc1()">
+  <br><br>
+ <div id="result1"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function proc1(){
+	
+	//리터럴에 의한 객체 생성
+	var myCar={
+			model:"bmw",
+			speed:100,
+			color:'red',
+			brake:function(){
+				this.speed-=10;
+				
+			},
+			accel: function(){
+				this.speed+=10;
+			}
+			
+			
+	}
+	res = "모델:" + myCar.model + "<br>";
+	res += "속도:" + myCar.speed + "<br>";
+	res += "색상:" + myCar.color + "<br>";
+	
+	document.getElementById('result1').innerHTML = res;
+	
+	myCar.accel();
+	res+="속도변경:"+myCar.speed+"<br>";
+	document.getElementById('result1').innerHTML = res;
+	
+	for(i=0;i<5;i++){
+		myCar.brake();
+		
+	}
+	res+="속도변경:"+myCar.speed+"<br>";
+	document.getElementById('result1').innerHTML = res;
+	
+	myCar.color	="black";
+	res+="색상변경:"+myCar.color+"<br>"
+	document.getElementById('result1').innerHTML = res;
+	
+	myCar.name ="달려라";
+	res+="이름:"+myCar.name+"<br>";
+	document.getElementById('result1').innerHTML = res;
+	
+}
+function proc2(){
+	var rect={
+			garo:10,
+			sero:9,
+			getArea:function(){
+				return this.garo*this.sero;
+			} 
+			
+	}
+	res = "가로:" + rect.garo + "<br>";
+	res += "세로:" + rect.sero + "<br>";
+	//aa=rect.getArea()
+	
+	res+="넓이:"+rect.getArea();
+	document.getElementById('result2').innerHTML = res;
+	
+	rect.garo=12;
+	rect.sero=13;
+	rect.getArea()
+	
+	res+="가로:"+rect.garo+"<br>";
+	res+="세로:"+rect.sero+"<br>";
+	res+="넓이:"+rect.getArea();
+	document.getElementById('result2').innerHTML = res;
+}
+
+</script>
+</head>
+<body>
+<div class="box">
+ <H3>1. 객체리터럴방식</H3>
+
+  <br><br>
+  <input type="button" value="실행" onclick="proc1()">
+  <br><br>
+ <div id="result1"></div>
+</div>
+<div class="box">
+ <H3>1객체리터럴방식</H3>
+Rect객체 생성<br>
+속성: garo, sero<br>
+함수: getArea()
+  <br><br>
+  <input type="button" value="실행" onclick="proc2()">
+  <br><br>
+ <div id="result2"></div>
+</div>
+</body>
+</html>
