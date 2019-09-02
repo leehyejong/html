@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script type="text/javascript">
+
+str=["홍길동","개나리","진달레","홍길동","무궁화","삼천리","홍길동"];//잔역변수
+su=["사과","바나나","복숭아","오렌지","수박","포도"];
+
+function proc1(){
+	 name=prompt("이름을 입력");
+	idx= str.indexOf(name);
+	
+	res="이름"+name+"<br>";
+	res += idx + "번째 있습니다";
+	document.getElementById('result1').innerHTML = res;
+}
+function proc2(){
+	 name=prompt("이름을 입력");
+		idx= str.LastIndexOf(name);
+		
+		res="이름"+name+"<br>";
+		res += idx + "번째 있습니다";
+		document.getElementById('result1').innerHTML = res;
+	
+	
+}
+function proc3(){
+	idx=0;
+	name=prompt("이름을 입력");
+	res="이름"+name+"<br>";
+	while(true){
+	
+		idx=str.indexOf(name,idx);
+		 if(idx==-1) break;
+		
+	    res+=idx+"번째"+"<br>";
+		idx ++;
+	   
+	}
+	res+="있습니다";
+	document.getElementById('result3').innerHTML = res;
+}
+function proc4(){
+	res="초기배열: "+str+"<br>";
+	
+	name=prompt("이름입력");
+	str.push(name)
+	;
+	res+="추가 후 배열: "+str;
+	document.getElementById('result4').innerHTML = res;
+}
+function proc5(){
+	res="초기배열: "+str+"<br>";
+	str.pop();
+	
+	res+="삭제 후 배열: "+str;
+	document.getElementById('result5').innerHTML = res;
+}
+function proc6(){
+	res="초기배열: "+str+"<br>";
+	str.shift();
+	res+="삭제 후 배열: "+str;
+	document.getElementById('result6').innerHTML = res;
+}
+function proc7(){
+	res="초기배열: "+str+"<br>";
+	name=prompt("이릅입력: ")
+	str.unshift(name);
+	res+="추가 후 배열: "+str;
+	document.getElementById('result7').innerHTML = res;
+}
+function proc8(){
+	res="초기배열: "+str+"<br>";
+	str.reverse()
+	res="뒤집기 후 배열: "+str+"<br>";
+	document.getElementById('result8').innerHTML = res;
+}
+function proc9(){
+	
+	a=str.slice(2,6);
+	res="초기배열: "+str+"<br>";//실제로 자른는 것이 아니고 추출
+	res += "slice(2,6): " +a;
+	document.getElementById('result9').innerHTML = res;
+}
+function proc10(){
+	res="초기배열: "+str+"<br>";
+	//str.splice(2, 0, "Lemon", "Kiwi");//2번쨰 위치에 삭제되는 거 없이 레몬 키위 넣어 한개삭제하려면 1
+	str.splice(2, 1, "Lemon", "Kiwi");//한개르 삭제하고 넣어라
+	res+="추가 수정 후 배열: "+str;
+	document.getElementById('result10').innerHTML = res;
+	
+	
+}
+function proc11(){
+	a = str.concat(su);
+	res="";
+	for(i=0;i<a.length;i++){
+		res += i+"번쩨 요소 :"+a[i]+"<br>";
+	}
+	document.getElementById('result11').innerHTML = res;
+}
+function proc12(){
+	
+	res="str배열의 길이: " + str.length+"<br>";
+	for(i=0;i<str.length;i++){
+		res += i+"번쩨 요소 :"+str[i]+"<br>";
+	}
+	a= str.join();
+	res+= "<br>join 후 길이 : " + a.length + "<br>";
+	for(i=0;i<a.length;i++){
+		res += i+"번쩨 요소 :"+a[i]+"<br>";
+	}
+	document.getElementById('result12').innerHTML = res;
+	
+	
+}
+num=[45,123,15,312,38,478,25,201]; //전역인데 13,14,15에서 사용가능
+function proc13(){
+	res="초기배열: "+num+"<br>";
+	num.sort();
+	
+	res+="sort후 배열 : "+ num+"<br>";
+	document.getElementById('result13').innerHTML = res;
+}
+function proc14(){
+	res="초기배열: "+num+"<br>";
+	
+	num.sort(function(a,b){
+		return a-b;//오름차순
+	})
+	res+="sort후 배열 : "+ num+"<br>";
+	document.getElementById('result14').innerHTML = res;
+}
+function proc15(){
+	res="초기배열: "+num+"<br>";
+		
+		num.sort(function(a,b){
+			return b-a;//내림차순
+		})
+		res+="sort후 배열 : "+ num+"<br>";
+		document.getElementById('result15').innerHTML = res;
+	
+}
+</script>
+</head>
+<body>
+<div class="box">
+ <H3>1. 이름을 입력받아 위치값알아내기</H3>
+ str=["홍길동,""개나리","진달레","홍길동","무궁화","삼천리","홍길동"]<br>
+-indexOf('찾는 이름'):찾는 이름이 배열에 몊번째에 있느냐? 홍길동 0번째<br>
+-lastindexOf('찾는 이름'):뒤에서부터 검색새서 찾는이름이 배열에 몇번째인가 홍길동6번째 인덱스는 변하지 않는다<br>
+  <br><br>
+  <input type="button" value="indexOf-힌게" onclick="proc1()">
+  <input type="button" value="LastIndexOf" onclick="proc2()">
+  <input type="button" value="LastIndexOf-여러개" onclick="proc3()">
+  <br><br>
+ <div id="result1"></div>
+ <div id="result2"></div>
+  <div id="result3"></div>
+  </div>
+  <div class="box">
+ <H3>2.추가/삭제</H3>
+ str=["홍길동,""개나리","진달레","홍길동","무궁화","삼천리","홍길동"]<br>
+-push('이름'):찾는 이름이 배열울  맨 마지막 요소로 추가<br>
+-pop():배열의 맨 뒤에 있는 요소를 제거한다<br>
+-shift():배열의 맨 처름 요소를 제거한다<br>
+-unshift('이름'): 배열에서 맨 처음의 요소로 이름을 추가한다
+  <br><br>
+  <input type="button" value="push" onclick="proc4()">
+  <input type="button" value="pop" onclick="proc5()">
+  <input type="button" value="shift" onclick="proc6()">
+  <input type="button" value="unshift" onclick="proc7()">
+  <br><br>
+ <div id="result4"></div>
+ <div id="result5"></div>
+ <div id="result6"></div>
+ <div id="result7"></div>
+
+</div>
+
+  <div class="box">
+ <H3>뒤집기/자르기/수정하기</H3>
+ str=["홍길동,""개나리","진달레","홍길동","무궁화","삼천리","홍길동"]<br>
+-reverse():배열으 거꾸로 뒤집는다<br>
+-slice(start, end):start-end사이(end-1)의 값을 자른다<br>
+-splice(index, length,a,b,c,....):수정, 또는 삭제 후 수정<br>
+ length:삭제되느 개수<br>
+
+  <br><br>
+  <input type="button" value="reverse" onclick="proc8()">
+  <input type="button" value="slice" onclick="proc9()">
+  <input type="button" value="splice" onclick="proc10()">
+  
+  <br><br>
+ <div id="result8"></div>
+ <div id="result9"></div>
+ <div id="result10"></div>
+
+
+</div>
+
+  <div class="box">
+ <H3>배열 합치기/문자여 변환</H3>
+ str=["홍길동,""개나리","진달레","홍길동","무궁화","삼천리","홍길동"]<br>
+ su=["사과","바나나","복숭아","오렌지","수박","포도"]<br>
+-concat():여러게의 배열을 합쳐서 한개의 배열으 만든다<br>
+-join():한개의 배열을 문자열로 변환한다<br>
+
+
+  <br><br>
+  <input type="button" value="concat()" onclick="proc11()">
+  <input type="button" value="join()" onclick="proc12()">
+
+  
+  <br><br>
+ <div id="result11"></div>
+ <div id="result12"></div>
+
+
+
+</div>
+  <div class="box">
+ <H3>sort(정렬)</H3>
+-num=[45,123,15,312,38,478,25,201];
+-sort는 값의 대소를 비교하는 것이 아니라 자릿수의 대소를 비교하여 나열한다<br>	
+	123,15, 201,25 ,312,38, 45, 478//자릿수를비교한다 값의 비교 아님<br>
+	
+	15,25,38,45,123,201,312,478<br>
+
+
+  <br><br>
+  <input type="button" value="sort자릿수" onclick="proc13()">
+  <input type="button" value="sort오름차순" onclick="proc14()">
+   <input type="button" value="sort나림차순" onclick="proc15()">
+  <br><br>
+ <div id="result13"></div>
+ <div id="result14"></div>
+  <div id="result15"></div>
+
+</div>
+</body>
+</html>

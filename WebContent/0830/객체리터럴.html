@@ -47,32 +47,96 @@ function proc1(){
 	document.getElementById('result1').innerHTML = res;
 	
 }
+
 function proc2(){
-	var rect={
-			garo:10,
+	 rect={
+			garo:10,//리터럴발식
 			sero:9,
 			getArea:function(){
 				return this.garo*this.sero;
 			} 
 			
 	}
-	res = "가로:" + rect.garo + "<br>";
-	res += "세로:" + rect.sero + "<br>";
-	//aa=rect.getArea()
+	area=rect.getArea();
+	rect.name="사각형1";
+	print();
 	
-	res+="넓이:"+rect.getArea();
-	document.getElementById('result2').innerHTML = res;
+// 	res = "가로:" + rect.garo + "<br>";
+// 	res += "세로:" + rect.sero + "<br>";
+// 	//aa=rect.getArea()
 	
+// 	res+="넓이:"+rect.getArea();
+// 	document.getElementById('result2').innerHTML = res;
+	rect.name="네모";
 	rect.garo=12;
 	rect.sero=13;
 	rect.getArea()
+	print();
 	
+// 	res+="가로:"+rect.garo+"<br>";
+// 	res+="세로:"+rect.sero+"<br>";
+// 	res+="넓이:"+rect.getArea();
+// 	document.getElementById('result2').innerHTML = res;
+	rect.name="사각형2";
+	rect.garo=rect.garo+5;
+	rect.sero+=3;
+	area=rect.getArea();
+	print();
+	
+// 	res+="가로:"+rect.garo+"<br>";
+// 	res+="세로:"+rect.sero+"<br>";
+// 	res+="넓이:"+rect.getArea();
+// 	document.getElementById('result2').innerHTML = res;
+	
+	
+}
+res="";
+function print(){
+	res+="이름:"+rest.name+"<br>";
 	res+="가로:"+rect.garo+"<br>";
 	res+="세로:"+rect.sero+"<br>";
 	res+="넓이:"+rect.getArea();
+	res+="<br><br>"
 	document.getElementById('result2').innerHTML = res;
 }
-
+function proc3(){
+	function rect(garo, sero){//생성자 방식
+		this.garo=garo;
+		this.sero=sero;
+		
+		this.getArea=function(){
+			return this.garo*this.sero;//정의
+		}
+	}
+	
+	r1=new rect(23,12); //생성자생성
+	
+	area=rect.getarea();
+	//속성이나 함수를 객체 안에 동적으로 추가할 수가 잇다
+	r1.name="사각형1";
+	r1.getCircum=funstion(){
+		return (this.garo+this.sero)*2;
+	}
+	printRect(r1);
+	r2= new rect(10,8);
+	r2.name="사각형2";//객체를 여러개를 생성ㅅ한다
+	r2.getCircum=funstion(){
+		return (this.garo+this.sero)*2;
+	//area=r2.getArea();
+	printRect(r2);
+}
+rest="";
+function printRect(rect){
+	res+="이름:"+rect.name+"<br>";
+	res+="가로:"+rect.garo+"<br>";
+	res+="세로:"+rect.sero+"<br>";
+	res+="넓이:"+rect.getArea()+"<br>";
+	res+="둘레:"+rect.getCircum()+"<br>";
+	res+="<br><br>"
+	document.getElementById('result3').innerHTML = res;
+}
+	
+}
 </script>
 </head>
 <body>
@@ -93,6 +157,28 @@ Rect객체 생성<br>
   <input type="button" value="실행" onclick="proc2()">
   <br><br>
  <div id="result2"></div>
+</div>
+
+<div class="box">
+ <H3>2객체 생성자 방식</H3>
+<br>
+<br>
+
+  <br><br>
+  <input type="button" value="실행" onclick="proc3()">
+  <br><br>
+ <div id="result3"></div>
+</div>
+
+<div class="box">
+ <H3>2객체 생성자 방식</H3>
+<br>
+<br>
+
+  <br><br>
+  <input type="button" value="실행" onclick="proc3()">
+  <br><br>
+ <div id="result3"></div>
 </div>
 </body>
 </html>
