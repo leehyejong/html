@@ -3,11 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script type="text/javascript">
+str=[];
+
+function proc1(){
+	
+	while(true){
+		name=prompt("이름을 입력");
+		if(name==null || name=="" ){
+		break;
+	 }
+	 str.push(name);
+ }
+	//res=str;
+	document.getElementById('result1').innerHTML = str;
+}
+function proc2(){
+	number=[];
+	res="입력한 값: ";
+	i=0;
+	while(true){
+		n=prompt(i+"번째 숫자를 입력하세요");
+		res+=n+", ";
+		
+		if(number.indexOf(n)==-1){
+			number.push(n);
+			i++;
+		}
+		if(number.length>=5){
+			break;
+		}
+	}
+	
+	idx=res.lastIndexOf(',');
+	res=res.slice(0,idx);
+	res+= "<br> 배열 저장 값: "+number;
+	document.getElementById('result2').innerHTML = res;
+}
+
+
+
+</script>
 </head>
 <body>
 <div class="box">
  <H3>1. 이름을 입력받아 배열에 저장하기</H3>
- -str=new Array()<br>
+ -str=new Array[]<br>
 -아무것도 입력받지 ㅇ낳고 확인 버튼을 클릭하거나<br>
 취소버튼을 클릭하면 입력을 종료한다<br>
 입력이 종료 된 후에 배열의 값으 출력<br>
@@ -22,7 +64,7 @@
   
   <div class="box">
  <H3>2. 중복되지 않는 정수 5개 입력 배열에 저장하기</H3>
- -str=new Array()<br>
+ -str=new Array[5]<br>
 -insdexOf()를 이용<br> 
   <br><br>
   <input type="button" value="입력" onclick="proc2()">

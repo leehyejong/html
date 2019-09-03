@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function proc1(){
+	today=new Date();
+	
+	a = today.getDay()
+	switch(a){
+	case 0:
+		res= "일요일";
+		break;
+	case 1:
+		res= "월요일";
+		break;
+	case 2:
+		res= "화요일";
+		break;
+	case 3:
+		res= "수요일";
+		break;
+	case 4:
+		res= "목요일";
+		break;	
+	case 5:
+		res= "금요일";
+		break;	
+	case 6:
+		res= "토요일";
+		break;	
+	}
+	
+	str=today.toLocaleDateString()+"<br>";
+	str+=res+"입니다";
+	
+	document.getElementById('result1').innerHTML = str;
+}
+ function proc2(){
+	days=["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+	
+	today= new Date();
+	a= today.getDay();
+	
+	res=today.toLocaleString()+"<br>"
+	res+=days[a]+"입니다"
+	document.getElementById('result2').innerHTML = res;
+ }
+ function proc3(){
+	 a= new Date(2000, 9-1,2);//첫만남
+	 today=new Date(); //오늘날짜
+	 res="처음날짜: "+a.toLocaleDateString()+"<br>";
+	 res+="오늘날짜: "+today.toLocaleDateString()+"<br>";
+	
+	 x=today.getTime()-a.getTime()
+ 	 x1=x/1000;   //초
+ 	 res+=x1+"초<br>";
+ 	 x1=x1/60;   //분
+ 	res+=x1+"분<br>";
+ 	 x1=x1/60;  //시간
+ 	res+=x1+"시간<br>";
+ 	 x1=x1/24; //일
+ 	res+=x1+"일<br>";
+ 	 x1=x1/365 //년
+ 	res+=x1+"년<br>";
+ 	
+ 	res+="경과하였습니다"
+ 	 
+ 	 
+ 	 res+=
+ 	 
+ 	document.getElementById('result3').innerHTML = res;
+	
+	 
+ }
+ function proc4(){
+	 today = new Date();
+	 //today.getTime()millisec+500일의 millisec
+	 //하루의  millisec 24*60*60*1000  *500
+	 x = today.getTime()+24*60*60*1000*100;
+	 
+	 newday=new Date(x);
+	 
+	 res="오늘날짜 "+today.toLocaleDateString()+"<br>";
+	 res+="100일 후의 날짜 "+newday.toLocaleDateString()+"<br>";
+	 document.getElementById('result4').innerHTML = res;
+ }
+ function proc5(){
+	 
+	
+	 //오늘날짜
+	today=new Date();
+	a = document.getElementById('pdate').value;
+	//구입한 날짜
+	pday=new Date(a);
+	
+	//getTime울 이용해서 두 날자 사이의 간격으 구한다
+	x=today.getTime()-pday.getTime();
+	
+	
+	
+	//getTime()으로 엊어잔 millisec 값으로 일으 구헌다.
+	y=x/1000/60/60/24;
+	res="구입날짜 : "+pday.toLocaleDateString()+"<br>";
+	res+="오늘날짜 : "+ today.toLocaleDateString()+"<br>";
+	
+	
+	//구헤진 일이 7보다 큰지 작은지 비교
+	
+	if(y<=7){
+		res += "교환/환불 가능"
+	}else{
+		res +="7일이 경과 했으므로 교환/ 환불이 불가능"
+	}
+	document.getElementById('result5').innerHTML = res;
+	
+	kk = setInterval(function(){
+		console.log(kk);
+		
+		cr=Math.floor(Math.random()*256);
+		cg=Math.floor(Math.random()*256);
+		cb=Math.floor(Math.random()*256);
+		
+		document.getElementById('result5').style.color='rgb(' + cr + "," + cg + "," + cb + ")";//10진수
+		
+		//console.log('rgb(' + cr + "," + cg + "," + cb + ")");
+		///////////////////////////////////////////////////////////////
+		
+// 		cr=cr.toString(16);
+// 		cg=cg.toString(16);
+// 		cb=cb.toString(16);
+// 		document.getElementById('result5').style.color='#'+cr+cg+cb; //16진수
+		
+// 		console.log('#'+cr+cg+cb);
+		
+	},500);//0.5초가 지날 때마다 수행해라
+	
+ }
+ 
+ function stop(){
+	 clearInterval(kk);
+	 
+ }
+
+</script>
+</head>
+<body>
+<div class="box">
+ <H3>1. Date 객체</H3>
+ -now=new Date()<br>
+ -요일구하기<br>
+ -getDay():0(일요일)-6(토요일)<br>
+  <br><br>
+  <input type="button" value="reverse" onclick="proc1()">
+
+  
+  <br><br>
+ <div id="result1"></div>
+
+</div>
+
+<div class="box">
+ <H3>1. Date 객체</H3>
+ -now=new Date()<br>
+ -배열을이용해서 요일구하기<br>
+ 
+  <br><br>
+  <input type="button" value="reverse" onclick="proc2()">
+
+  
+  <br><br>
+ <div id="result2"></div>
+
+</div>
+
+<div class="box">
+ <H3>1. Date 객체</H3>
+ -a= new Date(2000, 9-1,12)<br>
+ -경과시간 구하기 getTime()<br>
+ <br>
+ 
+  <br><br>
+  <input type="button" value="reverse" onclick="proc3()">
+  <br><br>
+ <div id="result3"></div>
+
+</div>
+
+<div class="box">
+ <H3>4. Date 객체</H3>
+ -100일 후의 날짜<br>
+ -요일구하기<br>
+ -getDay():0(일요일)-6(토요일)<br>
+  <br><br>
+  <input type="button" value="reverse" onclick="proc4()">
+
+  
+  <br><br>
+ <div id="result4"></div>
+
+</div>
+
+<div class="box">
+ <H3>5. Date 객체</H3>
+ -교환, 환불 날짜 체크<br>
+ -7일이 지났으면 불가능<br>
+ <br><br>
+ 구입날짜: <input type="date" id="pdate">
+ <input type="button" value="확인" onclick="proc5()">
+
+  <br><br>
+  
+
+  
+  <br><br>
+ <div id="result5"></div><br>
+  <input type="button" value="중지" onclick="stop()">
+
+</div>
+
+</body>
+</html>

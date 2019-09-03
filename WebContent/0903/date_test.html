@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script type="text/javascript">
+function proc1(){
+	//now= new Date();
+	//now=new Date(2019,09-1,03,14,23);//0부터인식
+	now=new Date(1234567891234);//가 지난 후의 날짜
+	
+// 	x=1234567891234;
+// 	x1=x/1000;   //초
+// 	x1=x1/60;   //분
+// 	x1=x1/60;  //시간
+// 	x1=x1/24; //일
+// 	x1=x1/365 //년
+// 	alert(x1);
+	
+	document.getElementById('result1').innerHTML = now+"<br>";
+	a=now.toLocaleString()+"<br>";
+	a+=	now.toLocaleDateString()+"<br>";
+	a+=now.toLocaleTimeString()+"<br>";
+	document.getElementById('result1').innerHTML += a+"<br>";
+}
+
+</script>
+</head>
+<body>
+<div class="box">
+ <H3>1. Date 객체</H3>
+ -now=new Date()<br>
+ -now=new Date(millisec)<br>
+ --now=new Date(dateString)<br>
+ -now=new Date(year,month,day)<br>
+  <br><br>
+  <input type="button" value="reverse" onclick="proc1()">
+
+  
+  <br><br>
+ <div id="result1"></div>
+
+
+
+</div>
+
+
+</body>
+</html>
