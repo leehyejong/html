@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+//str="korea Happy New Year 무궁화 꽃이 피었습니다 우리나라 좋은 나라";
+str="korea Happy New Year";
+//   0 123 4
+ function proc1(){
+	res = str.charAt(4);
+	
+	res = "charAt(4)4번째에 있는 문자는 "+res+"입니다";
+	document.getElementById('result1').innerHTML = res;
+	
+ }
+ function proc2(){
+	 leng=str.length;
+	 su=prompt("수를 압력하세요","0~"+(leng-1));
+	 code = str.charCodeAt(su);
+	 text = str.charAt(su);
+	 res = "charCodeAt("+su+"):"+su+"번째에 있는 문자";
+	 res+= text+"의 유니코드는 "+code+"입니다";
+	 document.getElementById('result2').innerHTML = res;
+ }
+ str="Happy Korea무궁화 꽃korea이 피었습니다 우리나라 Korea 좋은 나라 korea";
+ function proc3(){
+	a= prompt("입력"); 
+	idx= str.indexOf(a);
+	res="문자 :"+a+"<br>";
+	res+="문장의 위치"+idx+"<br>"
+	document.getElementById('result3').innerHTML = res;
+	
+ }
+ function proc4(){
+	 a= prompt("입력"); 
+		idx= str.lastIndexOf(a);
+		res="문자 :"+a+"<br>";
+		res+="문장의 위치"+idx+"<br>"
+		document.getElementById('result4').innerHTML = res;
+		
+ }
+ function proc5(){
+	 a= prompt("입력"); 
+	 res="찾는 문자:"+a+"<br>";
+	 idx=0;
+	 while(true){
+		 idx= str.indexOf(a,idx);
+		 if(idx == -1) break
+		 
+		 res+=idx+"번째<br>";
+		 idx =idx+a.length;
+	 }
+	 document.getElementById('result5').innerHTML = res;
+ }
+ function proc6(){
+	 str2 = "대한민국만세";
+	 
+	 str3 = str.conncat(str2);
+	 res = "str:" + str + "<br>";
+	 res += "str2:" + str2 + "<br>";
+	 res += "str+str2:" + str3 + "<br>";
+	 document.getElementById('result6').innerHTML = res;
+ }
+ function proc7(){
+	 var str="Happy New Year. Merry ChrisrMas";
+	 lower=str.toLowerCase();//소문자로바꿔라
+	 upper=str.toUpperCase();//대문자로
+	 
+	 res="원글 :"+str+"<br>";
+	 res+="toLowerCase(): "+lower+"<br>";
+	 res+="toUpperCase(): "+upper+"<br>";
+	 document.getElementById('result7').innerHTML = res;// textContent 태그적용 안됨 innerHTML 태그적용됨
+	 
+	 
+ }
+ function proc8(){
+	 res = "원글: " + str + "<br>";
+	 //str=str.replace("Korea","대한민국");
+	 str=str.replace(/Korea/gi,"대한민국");//전체영역에서 korea를찾아서 바꿔 i ignore
+	 res += "변경후: " + str + "<br>";
+	 
+	 document.getElementById('result8').innerHTML = res;
+ }
+ function proc9(){
+	 //textarea에 입려된 내용을 가져온다 value
+	 //내용 속에는 enter가 수행되어 있다
+	 txt = document.getElementsByTagName('textarea');//0번째 리턴값이 배열이라 하나밖에 없어도 0번째 붙혀야함
+	 tvalue = txt[0].value;
+	 //console.log(tvalue);
+	 //내용속의 enter를 br태그로 바꿔서 result9에 출력한다
+	 //출력시에는 br태그가 실행되어 줄바꿈이 이루어져야한다
+	 //innerHTML
+	 //tvalue = tvalue.replace(/\r/g,"").replace(/\n/g,"<br>");
+	 
+	 tvalue = tvalue.replace(/\n/g,"<br>")
+	 document.getElementById('result9').innerHTML = tvalue;
+ }
+ function proc10(){
+	 ss = str.substr(2, 10);
+	 res = "원글: " + str + "<br>";
+	 res += "substring(2,10) : " + ss + "<br>";
+	 res += "무궁화 꽃을 추출하기 위해서 str.substring(12, 17)"
+	          +str.substr(12, 17)+"<br>";
+	 
+	 document.getElementById('result10').innerHTML = res;
+ }
+ function proc11(){
+	 ss=substr(12, 5);
+	 res = "원글: " + str + "<br>";
+	 res += "무궁화 꽃을 추출하기 위해서 str.substr(12, 5)"
+         +str.substring(12, 5)+"<br>";
+	 document.getElementById('result11').innerHTML = res;
+	 
+	 
+ }
+ function proc12(){
+	 str.slice(3,10)//3부터 9까지
+	 res = "원글: " + str + "<br>";
+	 //res += "str.slice(3,10) 추출:"+ss+"<br>";
+	 res += "Korea와 Korea사이의 문자를 추출";
+	
+	
+	 idx=0;
+	 while(true){
+		 idx= str.indexOf("Korea",idx);
+		 if(idx == -1) break
+		 
+		 res += idx+"번째<br>";
+		 idx = idx.length;
+		 
+		 str.slice(idx,idx+5)
+	 }
+	 
+	 document.getElementById('result12').innerHTML = res;
+ }
+</script>
+</head>
+<body>
+
+<div class="box">
+ <H3>1.String 메소드</H3>
+ -str="무궁화 꽃이 피었습니다 우리나라 좋은 나라"<br>
+ 
+ -charAt(인덱스):인덱스 번째의 문자를 리턴한다<br>
+ -charCodeAt('인덱스'):인덱스 번째의 유니코드값을 리턴한다<br>
+ 
+  <br><br>
+  <input type="button" value="charAt" onclick="proc1()">
+  <input type="button" value="charCodeAt" onclick="proc2()">
+  <br><br>
+ <div id="result1"></div>
+ <div id="result2"></div>
+
+</div>
+
+<div class="box">
+ <H3>1.String 메소드</H3>
+ -str="Happy Korea무궁화 꽃이 피었습니다 우리나라 korea 좋은 나라 korea"<br>
+ 
+
+ -indesOf('문자'):문자가 몇번째 위치에 있는지 리턴한다<br>
+ -lastIndexOf('문자'): 뒤에서부터 검색하여 문자가 몇번째 위치에 있는지 리턴한다(찾는건 뒤에서부터 ㅇ인덱스는 그대로)<br>
+  <br><br>
+  <input type="button" value="indexOf_한개" onclick="proc3()">
+  <input type="button" value="lastIndexOf" onclick="proc4()">
+  <input type="button" value="indexOf_여러개" onclick="proc5()">
+  <br><br>
+ <div id="result3"></div>
+ <div id="result4"></div>
+ <div id="result5"></div>
+
+</div>
+
+<div class="box">
+ <H3>1.String 메소드</H3>
+ -str="Happy Korea무궁화 꽃이 피었습니다 우리나라 korea 좋은 나라 korea"<br>
+ 
+
+ -concat('문자'):문자과 문자열을 합친다. 문자열+문자열과 같다<br>
+ -toLowerCase(): 소문자로 변경<br>
+ -toUpperCase(): 대문자로 변경<br>
+ -replace(찾는문자,바꿀문자):변경<br>
+ str=str.replace("Korea","대한민국")<br>
+ str=str.replace(/Korea/gi,"대한민국")<br>
+ tvalue.replace(/\n/g,"&lt;br&gt;")<br>
+  <br><br>
+  <input type="button" value="concat" onclick="proc6()">
+  <input type="button" value="Lower/upper" onclick="proc7()">
+  <input type="button" value="replace" onclick="proc8()">
+  <br><br>
+  <input type="button" value="입력 후 클릭" onclick="proc9()">
+  <br>
+  <textarea rows="10" cols="50"></textarea>
+  
+ <div id="result6"></div>
+ <div id="result7"></div>
+ <div id="result8"></div>
+ <div id="result9"></div>
+
+</div>
+
+<div class="box">
+ <H3>1.String 메소드</H3>
+ -str="무궁화 꽃이 피었습니다 우리나라 좋은 나라"<br>
+ 
+ -substring(from,to):from~to-1까지의 문자열 추출<br>
+ -substr(from,length):from~length 개수 만큼 문자여 추출<br>
+ -slice(from, to): from~to-1까지 까지의 문자열 추출<br>
+ -split(구분자,limit):구분자를 기준으로 햐소 문자열 분리<br>
+                     limit 개수
+  <br><br>
+  <input type="button" value="substring" onclick="proc10()">
+  <input type="button" value="substr" onclick="proc11()">
+  <input type="button" value="slice" onclick="proc12()">
+  <input type="button" value="split" onclick="proc13()">
+  <br><br>
+ <div id="result1"></div>
+ <div id="result2"></div>
+
+</div>
+
+</body>
+</html>
