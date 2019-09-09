@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+str=["Happy","Hello","GOOD","NEW YEAR","MERRY Chistmas","행복한 추석"]
+function proc1(){
+	a= window.setInterval(function(){
+		//랜덤발생
+		rand=Math.floor(Math.random()*str.length);
+		
+		document.getElementById('result1').textContent =str[rand];
+	},500)
+	
+}
+function stop(){
+	window.clearInterval(a)
+}
+function proc2(){
+	a=window.setTimeout(function(){
+     rand=Math.floor(Math.random()*str.length);
+		
+		document.getElementById('result2').textContent =str[rand];
+		
+	},500)
+	
+}
+function bodychange(){
+ cc= setInterval(function(){
+		//r,g,b 랜덤발셍
+		r=Math.floor(Math.random()*56+200);
+		g=Math.floor(Math.random()*56+200);
+		b=Math.floor(Math.random()*56+200);
+		
+		//body태그로 접근
+		//bodytag=document.getElementsByTagName('body')[0];
+		bodytag=document.getElementById('bd');
+			
+		//bodytag.style.backgroundColor=
+		//	"rgb("+r + "," + g + "," + b+")";
+		cr=r.toString(16);
+		cg=g.toString(16);
+		cb=b.toString(16);
+		
+		bodytag.style.backgroundColor='#'+cr+cg+cb;
+		
+	},1000)
+
+}
+function changestop(){
+ clearInterval(cc);	
+}
+</script>
+<style>
+</style>
+</head>
+<body id="bd" onload="proc1()">
+
+<div class="box">
+ <h3>setInterval/setTimeout</h3>
+ setInterval(function(){}.1000)<br>
+ -1초가 경과 할 때마다 계속해서 function을 수행한다<br>
+ setTimeout(function(){}.1000)<br>
+ -1초가 경과한 후에 function을 수행하고 종료한다<br>
+ <br>
+ <br>
+ <br><br>
+ <input type="button" value="interval" onclick="proc1()">
+ <input type="button" value="stop" onclick="stop()">
+ <input type="button" value="timeout" onclick="proc2()">
+ <br><br>
+<div id="result1"></div>
+<div id="result2"></div>
+
+</div>
+<br>
+<br>
+<input type="button" value="body배경색" onclick="bodychange()">
+<input type="button" value="interval" onclick="changestop()">
+</body>
+
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+window.onload=function(){
+	document.ff.name.focus();//폼에 커서 깜박깜박
+	
+	
+}
+function proc1(){
+		a=window.open("winsub.html","name","_blank","width=500, height=500, left=200, top=100");
+		//a.moveTo(300, 300)
+		//a.moveBy(300, 300)
+		//a.resizeTo(200, 200);
+		a.resizeBy(200, 200); //500+200 =700
+}
+function proc2(a,b){
+	win=window.open(a,b);
+	//window.open('select_문제.html','korea');
+	win.moveTo(0,0);
+	win.resizeTo(screen.availWidth,screen.availHeight);
+	
+	
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+
+<div class="box">
+ <h3>window</h3>
+ <br>
+ <br>
+ <br>
+ <br><br>
+ <input type="button" value="페이지 열기" onclick="proc1()">
+ <br><br>
+<div id="result1"></div>
+<div id="subres"></div>
+
+</div>
+<div class="box">
+ <h3>window</h3>
+ <br>
+ <br>
+ <br>
+ <br><br>
+ <input type="button" value="페이지 열기" onclick="proc2('select_문제.html','korea')">
+ <br><br>
+
+
+</div>
+</body>
+
+
+</html>
