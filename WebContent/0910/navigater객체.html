@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function proc1(){
+// 	res="appcodeName : "+ navigator.appcodeName+"<br>";
+// 	res+="appName : "+navigator.appName+"<br>";
+// 	res+="appVersion: "+navigator.appVersion+"<br>";
+// 	res+="userAgent: "+navigator.userAgent+"<br>";
+	res="";
+	for (var key in navigator) {
+        value = navigator[key];
+       res+=key + ": " + value + "<br>";
+    }
+	document.getElementById('result1').innerHTML=res;
+	
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+
+<div class="box">
+ <h3>navigator객체</h3>
+ -브라우저의 정보를 엊는 객체<br>
+  appName,appCodeName,appVersion,.....p.439<br>
+ <br>
+ <br><br>
+ <input type="button" value="실행" onclick="proc1()">
+ <br><br>
+<div id="result1"></div>
+
+</div>
+
+</body>
+
+
+</html>

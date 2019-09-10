@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function proc1(){
+	//ul요소로 접근
+	domul=document.getElementsByTagName("ul")[0];
+	domli=document.getElementsByTagName("li")
+	for(i=0;i<domli.length;i++){
+		//각 li 요소의 첫번째 자식으로 data값을 가져온다 접근한다
+		first= domli[i].firstChild.data;
+		
+		//새로운 img객체를 생성한다<img src="../images/  ">
+		vimg = document.createElement('img');
+		vimg.src="../images/"+first+".jpg";
+		vimg.width='100';
+		vimg.height='100';
+		domli[i].appendChild(vimg);
+	}
+	
+}
+function proc2(a){
+	//a는 클릭한 li 객체
+	
+	lidata= a.firstChild.data;
+	//새로운 img객체를 생성한다<img src="../images/  ">
+	vimg = document.createElement('img');
+	vimg.src="../images/"+lidata+".jpg";
+	vimg.width='100';
+	vimg.height='100';
+	
+	a.appendChild(vimg);
+	
+}
+function proc3(txt){
+	
+	//txt: Hello문자
+	//일반 글자 생성- createTextNode()
+	tnode=document.createTextNode(txt);
+	document.getElementById('result3').appendChild(tnode);
+	
+	
+}
+function proc4(){
+	arr=["Hello","Good","Happy","행복한 날",'좋추'];
+	rand=Math.floor(Math.random()*arr.length);
+	
+	//p태그 생성
+	ptag=document.createElement("p");
+	
+	//textNode생성
+	node=document.createTextNode(arr[rand]);
+	//textNode를 p태그에 추가
+	ptag.appendChild(node);
+	
+	document.getElementById('result4').appendChild(ptag);
+	
+}
+function removeProc(){
+	parent=document.getElementById('result4');
+	child=parent.lastChild;
+	parent.removeChild(child);
+}
+function proc5(){
+	arr=["Hello","Good","Happy","행복한 날",'좋추'];
+	rand=Math.floor(Math.random()*arr.length);
+	
+	//p태그 생성
+	ptag=document.createElement("p");
+	
+	//textNode생성
+	node=document.createTextNode(arr[rand]);
+	//textNode를 p태그에 추가
+	ptag.appendChild(node);
+	//버튼 생성
+	//<button onclick=""
+	but=document.createElement("button");
+	but.textContent="삭제";
+	but.onclick=function(){
+		this.parentNode.remove();
+		
+	}
+	
+	//p태그에 버튼을 추가
+	ptag.appendChild(but);
+	
+	document.getElementById('result5').appendChild(ptag);
+	
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+
+<div class="box">
+ <h3>이미지생성 / 추가</h3>
+ -domul=document.getElementsByTagName("ul")[0];<br>
+ -domli=document.getElementsByTagName("li")<br>
+ first= domli[i].firstChild.data; > text객체의 문자값<br>
+ first= domli[i].firstChild; > objest text객체<br>
+ <br>
+ vimg=creatElement('img');<br>
+ domli[i].appendChild('새로운 요소');<br>
+ <br>
+ <br><br>
+ <input type="button" value="실행" onclick="proc1()">
+ <br><br>
+<div id="result1"></div>
+	<ul>
+		<li>cafelatte</li>
+		<li>단풍</li>
+		<li>에스프레소</li>
+		<li>의류1</li>
+		<li>컴퓨터3</li>
+		<li>테니스화</li>
+	</ul>
+	
+	
+</div>
+
+<div class="box">
+ <h3>2.이미지생성 / 추가</h3>
+ -각각의 li요소를 클릭하면 이미지를 생성해서 추가하시오<br>
+ -클릭해서 함수 호출 시 this를 파라미터로 넘겨준다<br>
+ onclick="proc2(this)
+ function proc2(a)<br>
+
+ lidata= domli.firstChild.data; > text객체의 문자값<br>
+ lidata= domli.firstChild; > objest text객체<br>
+ a.appendChild(새로운 이미지)
+ <br>
+ <br>
+ <br><br>
+ <input type="button" value="실행" onclick="proc1()">
+ <br><br>
+<div id="result1"></div>
+	<ul>
+		<li onclick="proc2(this)">cafelatte</li>
+		<li onclick="proc2(this)">단풍</li>
+		<li onclick="proc2(this)">에스프레소</li>
+		<li onclick="proc2(this)">의류1</li>
+		<li onclick="proc2(this)">컴퓨터3</li>
+		<li onclick="proc2(this)">테니스화</li>
+	</ul>
+	
+	
+</div>
+<div class="box">
+ <h3>3.text문자 생성 / 추가</h3>
+ -버튼 클릭하면 hello글자를 생성해서 div에 추가한다<br>
+ -함수 호출 시 hello글자를 파라미터로 넘겨준다<br>
+
+ <br>
+ <br>
+ <br><br>
+ <input type="button" value="실행" onclick="proc3('Hello')">
+ <br><br>
+<div id="result3"></div>
+	<ul>
+		<li onclick="proc2(this)">cafelatte</li>
+		<li onclick="proc2(this)">단풍</li>
+		<li onclick="proc2(this)">에스프레소</li>
+		<li onclick="proc2(this)">의류1</li>
+		<li onclick="proc2(this)">컴퓨터3</li>
+		<li onclick="proc2(this)">테니스화</li>
+	</ul>
+	
+	
+</div>
+
+<div class="box">
+ <h3>4.text문자 생성 / 추가/삭제</h3>
+ <br>
+ <input type="button" value="실행" onclick="proc4()">
+ <br>
+ 랜덤으로 발생되는 문자열으 textNode로 생성<br>
+ p태그 생성<br>
+ p태그에 textNode를 추가<br>
+ div에 p태그를 추가<br>
+<input type="button" value="삭제" onclick="removeProc()"><br>
+-아래의 요소부터 차례로 삭제한다<br>
+-lastChild<br>
+-removeChild()<br>
+<div id="result4"></div>
+	
+</div>
+
+<div class="box">
+ <h3>5.text문자 생성 / 추가/삭제</h3>
+ <br>
+ <input type="button" value="추가삭제" onclick="proc5()">
+ <br>
+ 랜덤으로 발생되는 문자열으 textNode로 생성<br>
+ p태그 생성<br>
+ p태그에 textNode를 추가<br>
+ button생성<br>
+ p태그에 버튼 추가<br>
+ div에 p태그 추가<br>
+ div에 p태그를 추가<br>
+ 
+ 새로 생성된 버튼에 삭제 이벤트속성을 설정<br>
+ this:현재 클릭한 버튼 객체를 this로 받는다<br>
+ 버튼을 감싸고 있는 p태그에 접근:this.parentNode<br>
+ p태그를 삭제:this.parentNode.remove()<br>
+ but.onclick=function(){<br>
+ 	this.parentNode.remove();<br>
+}<br>
+<div id="result5"></div>
+</div>
+
+</body>
+
+
+</html>
