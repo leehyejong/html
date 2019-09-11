@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function proc1(){
+	//1.이미지를 배열로 구성
+	arr=["image.1.jpg","image.2.jpg","image.3.jpg","image.4.jpg","image.5.jpg","image.6.jpg","image.7.jpg","Jellyfish.jpg"];
+	//2.랜덤발생
+	rand=Math.floor(Math.random()*arr.length);
+	//3.이미지배열의[랜덤번째] src속성값을 변결<br>
+	document.getElementsById('img1').src="../images/"+arr[rand];
+	
+}
+function proc2(){
+	
+	b=setInterval(function(){
+		
+		//1.이미지를 배열로 구성
+		arr=["image.1.jpg","image.2.jpg","image.3.jpg","image.4.jpg","image.5.jpg","image.6.jpg","image.7.jpg","Jellyfish.jpg"];
+		//2.랜덤발생
+		rand=Math.floor(Math.random()*arr.length);
+		//3.이미지배열의[랜덤번째] src속성값을 변결<br>
+		document.getElementsById('img2').src="../images/"+arr[rand];
+		
+	}, 500);
+	//화면에 안보이게하기
+	//document.getElementsById('change').style.display="none";
+	//보이는데 더이상 클릭이 되지 않도록 변경버튼사용한ㄱ
+	document.getElementsById('change').style.disaed="true";
+}
+function stopproc(){
+	clearInterval(b);
+	//변경버튼이 화면애 나타나기
+	//document.getElementsById('change').style.display="inline";
+	document.getElementsById('change').style.display="false";
+
+}
+function matchpro(){
+	imgsrc=document.getElementsById('img3').src;
+	if(imgsrc.match('off')){
+		document.getElementsById('img3').src="../images/switch1_off.png";
+	}else{
+		document.getElementsById('img3').src="../images/switch1_on.png";
+	}
+	
+}
+</script>
+<style>
+img{
+ width:200px;
+ height:200px;
+ border-radius:50%;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+ <h3>1.src속성 변경</h3>
+ -버튼을 클릭할때마다 이미지를 변경<br>
+ 1.이미지를 배열로 구성<br>
+ 2.랜덤발생<br>
+ 3.아미지배열의[랜덤번째]의 src속성값을 변경<br>
+ 
+ <br>
+ <br>
+ <br><br>
+ <input type="button" value="실행" onclick="proc1()">
+ <br><br>
+<div id="result1">
+ <img id="img1" src="../images/가구1.jpg">
+</div>
+
+</div>
+
+<div class="box">
+ <h3>2.src속성 변경</h3>
+ -정해진 시간이 지날때 마다 이미지를 변경 setinterval<br>
+ 1.이미지를 배열로 구성<br>
+ 2.랜덤발생<br>
+ 3.아미지배열의[랜덤번째]의 src속성값을 변경<br>
+ 
+ -변경버튼을 클릭하면 더이상 변경버튼은 보이지 않는다<br>
+ -display: none;<br>
+ disabled:true;<br>
+ -중지버튼을 클릭하면 다시 변경버튼이 나타난다<br>
+ -display:inline<br>
+ -disabled:false<br>
+ 
+ 
+ <br>
+ <br>
+ <br><br>
+ <input type="button" id="change" value="변경" onclick="proc2()">
+ <input type="button" id="stop" value="중지" onclick="stopproc2()">
+ <br><br>
+<div id="result2">
+ <img id="img2" src="../images/Desert.jpg">
+</div>
+
+</div>
+<div class="box">
+ <h3>3.src속성 변경</h3>
+ -match
+ 전체뮨어욜 즁애소 알부뷴우ㅏ 툭종문자가 포함되어있느냐?
+ 있으면 특정문자 리턴하고 없으면 null을리턴
+ imgㅊ태그의 src값을 가져온다
+ src의 문자값 중에서 off하는 특정 글자가 표함되어있느냐
+ off라는 글자가 포함되어있으면 이미지우ㅏ  src값으 switch1_on.png로 변결하고
+ 포함되어있지 않으묜 값을 off로변경한다
+ <br>
+ <br>
+ 
+
+ <br><br>
+<div id="result3">
+ <img id="img3" onclick="matchpro()" src="../images/switch1_off.png">
+</div>
+
+</div>
+
+</body>
+
+
+</html>

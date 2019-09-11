@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function proc1(){
+	game=["가위","비위","보"];
+	rand=Math.floor(Math.random()*game.length);
+	
+	com=game[rand];
+	man=prompt("가위바위보 입력");
+	
+	document.getElementById('mimg').src="../images/"+man+"_좌.PNG";
+	
+	document.getElementById('cimg').src="../images/"+com+"_우.PNG";
+	
+	if(com==man){
+		res="비겼어";
+	}else if(com=="가위" && man=="바위"||com=="바위" && man=="보"||com=="보" && man=="가위"){
+		res="너가 이김";
+	}else{
+		res="컴이 이김";
+	}
+	document.getElementById('result').innerHTML=res;
+	
+}
+</script>
+<style>
+table{
+ text-align: center;
+ margin:5px auto;
+}
+td#man{
+ background:yellow;
+}
+td#com{
+ background:red;
+}
+#result{
+ background:#D7F1FA;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+ <h3>제목</h3>
+ 컴은 배열으 이용
+ 사람은 prompt를 이용하여 입력
+ <br>
+ <br>
+ <br>
+ <br><br>
+
+ <br><br>
+<div id="result1">
+	<table>
+		<tr>
+			<td colspan="2"><input type="button" value="게임시작" onclick="proc1()"></td>
+			
+		</tr>
+		<tr>
+			<td id="man">사람</td>
+			<td id="com">컴퓨터</td>
+		</tr>
+		<tr>
+			<td><img id="himg" src="../images/가위_좌.PNG"></td>
+			<td><img id="cimg" src="../images/가위_우.PNG"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<span id="result">결과 : </span>
+			</td>
+		</tr>
+
+
+	</table>
+
+
+</div>
+
+</div>
+
+</body>
+
+
+</html>
