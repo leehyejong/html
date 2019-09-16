@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script src="../js/checkdata.js"></script>
+<script>
+window.onload= function(){
+	f = document.ff;
+	f.id.focus();
+}
+
+function proc1(){
+	//입력한 값을 가져온다
+	//외부 스크립트의 함수호출
+	
+	if(check())
+		document.getElementById('result1').innerHTML="입력성공";
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+
+<div class="box">
+ <h3>공백검증과 길이검증</h3>
+ -각 요소의 입력값의 길이와 공백 체크<br>
+ -아이디:6-8사이<br>
+ -이름:2-5사이<br>
+ 
+ <br>
+ <br>
+ <br>
+ <form name="ff">
+ 아이디:<input type="text" name="id"><br>
+ 이름:<input type="text" name="name"><br>
+ <input type="button" value="실행" onclick="proc1()">
+ </form>
+ <br><br>
+<div id="result1"></div>
+
+</div>
+
+</body>
+
+
+</html>

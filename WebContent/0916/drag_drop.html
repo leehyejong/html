@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function dragStart(ev){
+	//드래그 하는 drop할 대상인 이미지의 아이디를 설정
+	
+	vimg=ev.target.id;
+	//console.log(vimg);
+	//setData를 이용해서 id를 저장한다
+	ev.dataTransfer.setData("targetImg",vimg);
+	
+}
+function dropEvent(ev){
+	imgid =ev.dataTransfer.getData("targetImg");
+	console.log("id="+imgid);
+	//drop하는 위치-div
+	//console.log(ev.target.tagName);
+	
+	if(ev.target.tagName=="DIV"){
+ 		ev.target.appendChild(document.getElementById(imgid));
+	}else if(ev.target.tagName=="IMG"){
+			ev.target.parentNode.appendChild(document.getElementById(imgid));
+	}
+}
+function dragOver(event){
+	event.preventDefault();
+}
+function goPage(){
+	//a태그의 고유 기능을 수향허자 얺도록 하기위함
+	a=prompt("나이입력");
+	if(a<12){
+		alert("접근금지")
+		event.preventDefault();
+	}
+	
+}
+</script>
+<style>
+img{
+	width:100px;
+	height:100px;
+}
+
+</style>
+</head>
+<body>
+<a onclick="goPage()" href="http://www.naver.com">네이버</a>
+<div class="box">
+	 <h3>drag/drop</h3>
+	 <br>
+	 <br>
+	
+	<div ondrop="dropEvent(event)" ondragover="dragOver(event)" id="result1"></div>
+	<br>
+	<img id="img1" ondragstart="dragStart(event)" draggable='true' src="../images/rest1.jpg">
+	<img id="img2" ondragstart="dragStart(event)" draggable='true' src="../images/가구1.jpg">
+	<img id="img3" ondragstart="dragStart(event)" draggable='true' src="../images/가구2.jpg">
+	<img id="img4" ondragstart="dragStart(event)" draggable='true' src="../images/가구3.jpg">
+	
+
+</div>
+
+</body>
+
+
+</html>

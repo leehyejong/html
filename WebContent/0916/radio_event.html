@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function changeColor(col){
+	//vbody=document.getElementsByTagName('body')[0]
+	vbody=document.getElementById('target');
+	
+	vbody.style.background=col;
+}
+function setColor(){
+	vbody=document.getElementById('target');
+	vbody.style.background="pink";
+	
+}
+function sub(){
+	//form의 txt에 입력된 값을 가져온다(get)
+	fvalue= document.inputForm.txt.value;
+	console.log(fvalue);
+	//값을 소문자로 변경-from의 txt의 값을 변경(set)
+	document.inputForm.txt.value=fvalue.toLowerCase();
+}
+function lower(){//소문자
+	fvalue= document.inputForm.txt.value;
+	document.inputForm.txt.value=fvalue.toLowerCase();
+	
+}
+function upper(){//대문자
+	fvalue= document.inputForm.txt.value;
+	document.inputForm.txt.value=fvalue.toUpperCase();
+	
+}
+function optionProc(){
+	a = document.selectForm.sel.value;
+	res=";"
+	for(i=1;i<10;i++){
+		res+=a+"*"+i+"="+a*i+"<br>";
+	}
+	document.getElementById('result').innerHTML=res;
+}
+function downProc(a){
+	a.style.border="5px solid blue";
+}
+function upProc(a){
+	a.style.border="1px solid red";
+}
+function buttonUp(but){
+	but.style.color="green";
+	but.style.fontSize="1.0em";
+	but.style.width="1500px";
+}
+function buttonDown(but){
+	but.style.color="red";
+	but.style.fontSize="2.0em";
+	but.style.width="400px";
+	
+}
+</script>
+<style>
+img{
+	width:100px;
+	height:100px;
+
+}
+
+
+
+
+</style>
+</head>
+<body onload="setColor()" id="target"> //온로드하면 setcolor부터 실행
+
+
+<div class="box">
+ <h3>배경색 변경</h3>
+ <br>
+ <br>
+ <br>
+     <form>
+        <input type="radio" name="C1" value="v1"
+            onclick="changeColor('lightblue')">파랑색
+        <input type="radio" name="C1" value="v2"
+            onclick="changeColor('lightgreen')">녹색
+    </form>
+</div>
+
+<div class="box">
+ <h3>onChange</h3>
+ <br>
+ <br>
+ <br>
+     <form name="inputForm">
+        영어단어<input type="text" name="txt" 
+            onchange="sub()">
+        <p>입력 필드에 입력 후에 필드를 벗어나면  onchange()이벤트가 발생되면서 소문자로 변경됩니다
+        <br><br>
+       <button type="button" onclick="lower()">소문자로</button>
+       <button type="button" onclick="upper()">대문자로</button>
+    </form>
+</div>
+
+<div class="box">
+ <h3>onChange</h3>
+-select option의 값이 변경되면 onchange()이벤트가 발생<br>
+     <form name="selectForm">
+        <select name="sel" onchange="optionProc()">
+        	<option value="1">1</option>
+        	<option value="2">2</option>
+        	<option value="3">3</option>
+        	<option value="4">4</option>
+        	<option value="5">5</option>
+        </select>
+    </form>
+    <div id="result"></div>
+</div>
+
+<div class="box">
+ <h3>onmouseup/onmousdown</h3>
+
+	<br>
+     <form name="mouseForm">
+    	<img onmousedown="downProc(this)" onmouseup="upProc(this)" src="../images/단풍.jpg">
+    	<img onmousedown="downProc(this)" onmouseup="upProc(this)" src="../images/대나무숲.jpg">
+    	<img onmousedown="downProc(this)" onmouseup="upProc(this)" src="../images/풍차.jpg">
+    	<img onmousedown="downProc(this)" onmouseup="upProc(this)" src="../images/셔틀콕.jpg">
+    	<img onmousedown="downProc(this)" onmouseup="upProc(this)" src="../images/가구1.jpg">
+    </form>
+    <br>
+    <button type="button" onmouseup="buttonUp(this)" onmousedown="buttonDown(this)">눌러봐</button>
+    
+</div>
+</body>
+
+
+</html>
