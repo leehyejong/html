@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function proc1(){
+	passvalue = document.ff.pass.value.trim();
+	regpass=//;
+// 	if(passvalue.length == 0){
+// 		alert("비밀번호 입력");
+// 		RETURN FALSE;
+// 	}
+// 	if(passvalue.length < 8 || passvalue.length>20){
+// 		alert("비밀번호 8-20 사이");
+// 		return false;
+// 	}
+//     a = prompt("URL주소 입력","http://ww.."); 
+    
+//     //전방탐색-> ?=찾는기준 문자열
+//     reg = /\w+(?=:)/;
+    
+//     //입력문자열이 정규식 패턴에 일치하는 값이 존재하냐 
+//     //match()-입력문자.match(정규식패턴)->입력문지 또는 null
+//     bb=a.match(reg);
+//     if(bb=="http"){
+//     	alert("일반 처리중 ")
+//     }else if(bb=="https"){
+//     	alert("보인 처리중")
+    	
+//     }
+
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+
+<div class="box">
+ <h3>비밀번호 정규식</h3>
+ -비밀번호는 영문 소문자, 대문자, 숫자, 특수문자가 <br>
+  반드시 1글자 포함되도록 8 ~ 20 글자 사이로 입력 받는다. <br>
+ <br>
+ <br>
+<form name='ff' >
+		<input type='password' name="pass" id='id' placeholder="비밀번호"><br>
+		<br>
+        <input type="button" value="확인" onclick="proc1()">
+ </form>
+ <br><br>
+<div id="result1"></div>
+
+</div>
+
+</body>
+
+
+</html>
