@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/publicstyle.css">
+<script>
+function readFile(){
+	//file객체 
+	//input type=file인 입력태그에서 파일 얻어오기 
+	//files 속성으로 얻어온다
+	//vfile의 결과값은 file객체 배열이다
+	vfile=document.getElementById('file').files[0];
+	
+	//vfile은 file객체이다
+	
+	
+	now=vfile.lastModifiedDate;
+	date=now.toLocaleDateString();
+	
+	
+	res="이름:"+vfile.name+"<br>";
+	res+="크기:"+vfile.size+"<br>";
+	res+="유형:"+vfile.type+"<br>";
+	res+="변경날짜:"+date+"<br>";
+	
+	document.getElementById('info').innerHTML=res;
+	
+	reader=new FileReader();
+	//reader.readAsText(vfile);//읽은 결과 값은 result속성에 저장
+	reader.readAsDataURL(vfile);
+	//result의 내용을 출력-textarea
+	
+	reader.onload=function(){
+		document.getElementById('content').value=reader.result;
+		
+		if(reader.result.match("image")){
+			vimg=document.getElementById('imgview');
+			vimg.style.display='block';
+			vimg.src=reader.result;
+		}else{
+			//이미지 파일이 아닌경우
+			document.getElementById('imgview').style.display='none';
+		}
+		
+		
+	}
+	
+}
+
+
+</script>
+<style>
+img{
+	width:150px;
+	height:140px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+ <h3>fileAPI</h3>
+ file객체-파일의 기본 정보를 얻어온다<br>
+        -이름(name) 크기(size),<br>
+        -유형(type),변경날짜(lastModefyDate)<br>
+ fileReader객체<br>
+  파일의 내용을 읽을 수 있는 기능을 제공한다<br>
+  
+  메소드: readAsText(파일객체).readAsDataURL(파일객체)<br>
+  속성:result:읽어온 파일의 내용을 저장한다<br>
+      error: 에러정보<br>
+ 
+ </div>
+ 
+ <div class="box">
+ <input type="file" id="file">
+ <input type="button" value="읽기" onclick="readFile()">
+</div>
+
+<div class="box">
+<h2>결과출력(fileLeader객체)</h2>
+<textarea id="content" rows="10" cols="50"></textarea>
+</div>
+
+<div class="box">
+<h2>결과출력(file객체)</h2>
+<img id="imgview" src="../images/coffee1.jpg">
+<br><br>
+<div id="info"></div>
+</div>
+
+</body>
+
+
+</html>
